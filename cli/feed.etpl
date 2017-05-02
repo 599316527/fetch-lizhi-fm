@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+        <atom:link href="${feed}" type="application/rss+xml" rel="self" />
+        <copyright>Copyright © 2017 LizhiFM</copyright>
+        <language>zh-cn</language>
+        <link>${baseUrl}/${band}/</link>
+        <title>${radioName}</title>
+        <itunes:keywords>${radioName}</itunes:keywords>
+        <itunes:author>${userName}</itunes:author>
+        <itunes:subtitle>${radioName}</itunes:subtitle>
+        <itunes:image href="${cover}" />
+        <itunes:keywords>${radioName}</itunes:keywords>
+        <itunes:owner>
+            <itunes:name>Kyle</itunes:name>
+            <itunes:email>ohyes@hk1229.cn</itunes:email>
+        </itunes:owner>
+
+<!-- for: ${items} as ${item} -->
+<item>
+    <title>${item.title}</title>
+    <itunes:author>${item.userName}</itunes:author>
+    <itunes:subtitle>${item.title}</itunes:subtitle>
+    <itunes:image href="${item.cover}" />
+    <enclosure url="${item.url}" type="audio/mp3" length=""/>
+    <guid>lz-${item.band}-${item.id}</guid>
+    <pubDate>${item.time}</pubDate>
+    <itunes:duration>${item.duration|format-time}</itunes:duration>
+    <itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
+    <link>${baseUrl}/${item.band}/${item.id}/</link>
+</item>
+<!-- /for -->
+
+    </channel>
+</rss>
